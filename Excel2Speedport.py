@@ -3,16 +3,24 @@ from os import system
 
 system("cls")
 
-book = load_workbook('Speedport_Telefonbuch.xlsx')
-
+book = load_workbook('Vorlage_Telefonbuch.xlsx')
 sheet = book.active
 
-f = open("Telefonbuch.txt","w", encoding='utf-8')
+f = open("Vorlage_Telefonbuch.txt", mode='w', encoding='utf-8')
+
+numContacts = sheet.max_row-1
+
+
+if numContacts > 1:
+    print("Es wurden insgesamt "+str(numContacts)+" Kontakte erkannt.\n")
+elif numContacts == 0:
+    print("Die Excel-Liste \"Vorlage_Telefonbuch.xlsx\" beinhaltet keine Kontakte.\n")
+    exit()
+else:
+    print("Es wurde "+str(numContacts)+" Kontakt erkannt.\n")
+
 
 counter = 0
-
-print("Es wurden insgesamt "+str(sheet.max_row-1)+" Kontakte erkannt.\n")
-
 for row in sheet.iter_rows(min_row=1, max_col=10, max_row=sheet.max_row):
 
     for cell in row:
@@ -31,6 +39,8 @@ for row in sheet.iter_rows(min_row=1, max_col=10, max_row=sheet.max_row):
 
 f.close()
 
-print("Excel-Liste wurde erfolgreich zu Telefonbuch.txt im UTF-8 Format konvertiert!")
-print("Sie können die Kontakte über die Benutzeroberfläche des Speedports \"www.speedport.ip\" importieren. \n")
-system("pause")
+print("Excel-Liste wurde erfolgreich zu \"Telefonbuch.txt\" im UTF-8 Format konvertiert!")
+print("Sie können \"Telefonbuch.txt\" über die Benutzeroberfläche des Speedports \"www.speedport.ip\" importieren. \n")
+
+print("Bitte drücken Sie eine beliebige Taste, um die Anwendung zu schließen...")
+system("pause >nul")

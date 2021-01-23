@@ -1,0 +1,2 @@
+"Name","Vorname","Rufnummer Privat","Rufnummer Arbeit","Rufnummer Mobil","Rufnummer Mobil 2","Strasse, Nr.","PLZ","Ort","Geburtstag"
+"das","","123","","","","","","",""
