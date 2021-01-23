@@ -1,9 +1,0 @@
-Will man eine Standalone .exe für Windows 7 erzeugen,
-benötigt man das Paket Nuitka und diverse weitere Packages, die bei der Ausführung installiert werden.
-Dazu gehört auch ein Paket mit mingw64, das ca. 2GB groß ist und 400 MB Download erfordert.
-
-Letztendlich kann mit bestimmten Parametern eine bestimmte Python-Version ausgewählt werden:
-
-py -3.8 -m nuitka --standalone --mingw64 Excel2Speedport.py
-
-Der obere Befehl erstellt eine Standalone, die daraufhin an jedem Win7 benutzt werden kann.
