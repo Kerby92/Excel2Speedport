@@ -6,18 +6,23 @@ system("cls")
 book = load_workbook('Vorlage_Telefonbuch.xlsx')
 sheet = book.active
 
-f = open("Vorlage_Telefonbuch.txt", mode='w', encoding='utf-8')
-
 numContacts = sheet.max_row-1
 
 
 if numContacts > 1:
     print("Es wurden insgesamt "+str(numContacts)+" Kontakte erkannt.\n")
+    f = open("Vorlage_Telefonbuch.txt", mode='w', encoding='utf-8')
+
 elif numContacts == 0:
     print("Die Excel-Liste \"Vorlage_Telefonbuch.xlsx\" beinhaltet keine Kontakte.\n")
+
+    print("Bitte drücken Sie eine beliebige Taste, um die Anwendung zu schließen...")
+    system("pause >nul")
     exit()
+
 else:
     print("Es wurde "+str(numContacts)+" Kontakt erkannt.\n")
+    f = open("Vorlage_Telefonbuch.txt", mode='w', encoding='utf-8')
 
 
 counter = 0
